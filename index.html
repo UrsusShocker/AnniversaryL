@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAPPY ANNIVERSARY, MI BABY!</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Pacifico&family=Shadows+Into+Light&family=Yeseva+One&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            position: relative;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .background-gif {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+        }
+
+        .background-particles {
+             position: fixed;
+             top: 0;
+             left: 0;
+             width: 100%;
+             height: 100%;
+             z-index: -1;
+             list-style: none;
+             padding: 0;
+             margin: 0;
+             pointer-events: none;
+         }
+
+        .particle {
+             position: absolute;
+             background-color: rgba(255, 192, 203, 0.5);
+             border-radius: 50%;
+             width: 10px;
+             height: 10px;
+         }
+
+         .container {
+             max-width: 900px;
+             margin: 2rem auto;
+             padding: 2rem;
+             background-color: rgba(255, 255, 255, 0.85);
+             border-radius: 15px;
+             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+             position: relative;
+             z-index: 1;
+         }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-family: 'Yeseva One', cursive;
+            color: #d6336c;
+        }
+
+        .introduction {
+            font-family: 'Pacifico', cursive;
+            color: #e677a1;
+            font-size: 1.2em;
+        }
+
+        #letter-section {
+             text-align: center;
+             margin-bottom: 2rem;
+         }
+
+         .letter-container {
+             display: flex;
+             justify-content: center;
+             gap: 20x;
+             margin-bottom: 1rem;
+         }
+
+         .letter {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+            font-family: 'Yeseva One', cursive;
+            background-color: #f06595;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            user-select: none;
+         }
+
+         .letter:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+         }
+
+         .letter-reveal-container {
+             min-height: 20px;
+         }
+
+         .letter-reveal {
+             display: inline-block;
+             margin: 0 5px;
+             opacity: 0;
+             transition: opacity 0.5s ease;
+         }
+
+         #content-section {
+            position: relative;
+         }
+
+        .content-box {
+            background-color: #fff0f6;
+            border: 1px solid #fcc2d7;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            display: none;
+            font-family: 'Shadows Into Light', cursive;
+            font-size: 1.3em;
+            color: #555;
+        }
+
+        .content-box.open {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .anniversary-card {
+            background: linear-gradient(135deg, #ff87ab 0%, #ffaecc 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 30px;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            box-shadow: 0 10px 20px rgba(214, 51, 108, 0.3);
+            font-family: 'Pacifico', cursive;
+        }
+        .anniversary-card.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .anniversary-card h2 {
+            margin-top: 0;
+            font-size: 2.5em;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+        .anniversary-card p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1em;
+            margin-bottom: 0;
+        }
+
+        .bottom-image {
+            display: block;
+            width: 100px;
+            height: auto;
+            margin: 30px auto 0;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+        .bottom-image:hover {
+            transform: scale(1.05);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="background-gif">
+        <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTg1d2k3emQ5bTNtYXlpZXZpaDVwdGZtYmZ2dGNyMzhobHptNHg5ayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MDJ9IbxxvDUQM/giphy.gif" alt="Abstract animated background pattern" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.3;">
+    </div>
+
+    <ul class="background-particles" aria-hidden="true">
+        <li class="particle"></li>
+        <li class="particle"></li>
+        <li class="particle"></li>
+        <li class="particle"></li>
+        <li class="particle"></li>
+        <li class="particle"></li>
+        <li class="particle"></li>
+        <li class="particle"></li>
+        <li class="particle"></li>
+        <li class="particle"></li>
+    </ul>
+
+    <div class="container">
+
+        <header>
+            <h1>OUR ZAA 6 MONTH ANNIVERSARY</h1>
+            <p class="introduction">A lil smth 😼 for za amazing wifeliyah 💗</p>
+        </header>
+
+        <section id="letter-section">
+            <div class="letter-container">
+                <div class="letter" id="letter-A" data-content="content-A" role="button" tabindex="0" aria-label="Reveal content for letter A">A</div>
+                <div class="letter" id="letter-K" data-content="content-K" role="button" tabindex="0" aria-label="Reveal content for letter K">K</div>
+                <div class="letter" id="letter-H" data-content="content-H" role="button" tabindex="0" aria-label="Reveal content for letter H">H</div>
+                <div class="letter" id="letter-A2" data-content="content-A2" role="button" tabindex="0" aria-label="Reveal content for second letter A">A</div>
+            </div>
+            <div class="letter-reveal-container">
+                <span class="letter-reveal" id="reveal-A"></span>
+                <span class="letter-reveal" id="reveal-K"></span>
+                <span class="letter-reveal" id="reveal-H"></span>
+                <span class="letter-reveal" id="reveal-A2"></span>
+            </div>
+        </section>
+
+        <section id="content-section">
+            <div class="content-box" id="content-A" aria-live="polite">
+            </div>
+            <div class="content-box" id="content-K" aria-live="polite">
+            </div>
+            <div class="content-box" id="content-H" aria-live="polite">
+            </div>
+            <div class="content-box" id="content-A2" aria-live="polite">
+            </div>
+
+            <div class="anniversary-card" id="anniversary-card" aria-live="polite">
+                <h2>HAPPOY ANNIVERSARY MI LOVELY</h2>
+                <p>(ALIYAH 💗)</p>
+            </div>
+        </section>
+
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const letters = document.querySelectorAll('.letter');
+            const contentBoxes = document.querySelectorAll('.content-box');
+            const anniversaryCard = document.getElementById('anniversary-card');
+            const clickedLetters = new Set();
+
+            letters.forEach(letter => {
+                const activateLetter = function() {
+                    const contentId = this.dataset.content;
+                    const letterId = this.id;
+
+                    contentBoxes.forEach(box => {
+                        if (box.id !== contentId && box.classList.contains('open')) {
+                            box.classList.remove('open');
+                        }
+                    });
+
+                    const selectedContent = document.getElementById(contentId);
+
+                    if (selectedContent) {
+                         if (selectedContent.classList.contains('open')) {
+                         } else {
+                             setTimeout(() => {
+                                 selectedContent.classList.add('open');
+                                 clickedLetters.add(letterId);
+
+                                 if (clickedLetters.size === letters.length && anniversaryCard) {
+                                     setTimeout(() => {
+                                         anniversaryCard.classList.add('show');
+                                     }, 500);
+                                 }
+                             }, 50);
+                         }
+                    }
+                };
+
+                letter.addEventListener('click', activateLetter);
+
+                letter.addEventListener('keydown', function(event) {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        activateLetter.call(this);
+                    }
+                });
+            });
+
+
+            const contentData = {
+                'content-A': `
+                    <h2>Aliyah...😈🩷</h2>
+                    <p>It has been 6 WHOOLE MONTHS BUT IT FEELS LIKE ITS BEEN 6 YEARS IT FEELS LIKE WE JUTS MET, BUT ALSO LIKE WEVE KNOWN EACHOTHER FOR YEARZ. BUT EVEN SINCE YOU CAME INTO MA LIFE EVERYTHING HAS BEEN SO MUCH BETTER I CANT IMAGINE LIFE WITHOUT YOU I DONT EVEN REMEMBER WHAT I WAS DOING FOR FUN BEFORE MEETING BRO. REMEMBER WHEN WE WERE LIKE WHY DO PEOPLE EVEN LOVE EACHOTHER? CRAZY HOW MUCH WEVE CHANGED SINCE THEN 😭💗</p>
+                    <img src="https://media.tenor.com/L4Kz0XUnzJwAAAAi/peach-goma.gif" alt="Cute animated characters hugging" style="max-width: 100px; border-radius: 5px; margin-top: 10px;">
+                `,
+                'content-K': `
+                    <h2>Khan...(notice what i did there heh)</h2>
+                    <p>YOURE THE BEST THING TO EVER HAPPEN TO ME. YOURE PERFECT FOR ME IN EVERY WAY LIKE YOUR PERSONALITY LOOKS SMILE FACE EYES EARS ONE SINGULAR DIMPLE EVERYTHING I LOVE EVERTHING ABOUT YOU BABY 💗💗</p>
+                    <p><em>I ALWAYS WONDER HOW I GOT SO LUCKY</em> 🤔🍀💖</p>
+                `,
+                'content-H': `
+                    <h2>Hasan...(thats me heh🙋🏿‍♂️)</h2>
+                    <p>YOUR HUSBAND, I CANNOT BELIVE IM YOUR HUSBAND 😍. I LOVE US WE ARE SO MEANT TO BE I LOVE WHEN WE TALK WHETHER ITS ON TEXT OR CALL CUS YOU NEVER FAIL TO MAKE ME LAUGH AND YOUR LAUGH IS JUST 💥🅰️💥🅰️💥 ALSO I HAD AN IDEA TO PUT MY FAV PIC OF YOU AND THIS ONES IT 😭🩷🩷🩷</p>
+                    <img src="image.png" alt="Cute animated character blowing a kiss" style="max-width: 200px; border-radius: 5px; margin-top: 10px;">
+                `,
+                 'content-A2': `
+                    <h2>Asher and Kiki 🖤🤍...</h2>
+                    <p>Lastly OUR KIDSSSS, THEYRE SO PERFECT (JUST LIKE YOU 😉). AND WERE GONNA HAVE MORE OF OUR MOIST KIDDOSS IN ZA FUTURE WHEN WE FINNALLY MEET. THIS IS THE END OF THE WEBSITE AND THE FIRST GIFT I KNOW IT ISNT MUCH BUT ILL SHOW YOUU WHEN WE MEET BY MAKING BETTER STUFF 😭😭</p>
+                    <p><strong>I LOVE YOU MY BABYGIRL! HAPPOY ANNIVERSARY! 😍💙🩷</strong></p>
+                `
+            };
+
+             for (const id in contentData) {
+                 const element = document.getElementById(id);
+                 if (element) {
+                     element.innerHTML = contentData[id];
+                 }
+             }
+
+            const finalContentBox = document.getElementById('content-A2');
+            if(finalContentBox) {
+                finalContentBox.innerHTML = finalContentBox.innerHTML.replace('Happoy', 'HAPPOY');
+            }
+
+        });
+    </script>
+
+    <a href="#" target="_blank" rel="noopener noreferrer">
+
+    </a>
+
+    <audio autoplay loop>
+        <source src="akhaMAIN.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+      
+      
+
+</body>
+</html>
